@@ -1,0 +1,227 @@
+ <!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Map Login</title>
+    <style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('your-background-image.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    background-color: #007bff; /* Blue */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 15px;
+}
+
+        #welcomeMessage {
+            display: none; /* Hidden initially */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensure it's on top */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Please Login To Access The Map</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username"><br>
+            <input type="password" id="password" placeholder="Password"><br>
+            <button type="submit">Login</button>
+            <button type="button" onclick="showRegistration()">Register</button>
+        </form>
+    </div>
+    <div id="welcomeMessage" style="display: none;">
+        <h2>Hello, welcome to indoor navigation for VIT!</h2>
+        <p>Kindly choose your floor from the drop-down menu followed by clicking on departure and destination rooms to find the shortest accessible route.</p>
+        <button id="continueButton">Continue</button>
+    </div>
+
+    <script>
+
+        // Map background (replace with your actual map image or embed)
+        document.body.innerHTML += '<img class="map-background" src="map.jpeg" alt="Map Background">';
+            // Add your login logic here (e.g., send credentials to server, validate)
+            document.getElementById("loginForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  // Replace with your actual validation logic (server-side or client-side)
+  if (username === "VIT" && password === "map") {
+    document.getElementById("welcomeMessage").style.display = "block";
+
+    document.getElementById("continueButton").addEventListener("click", function() {
+      // Replace with your localhost URL or actual map page URL
+      window.location.href = "http://localhost:5176/"; 
+    });
+  } else {
+    alert("Invalid credentials");
+  }
+}); -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Login</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('map.jpeg'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-box h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .text-center {
+            text-align: center;
+            margin-top: 15px;
+        }
+        #welcomeMessage {
+            display: none; /* Hidden initially */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000; /* Ensure it's on top */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Map Login</h2>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <div id="welcomeMessage" style="display: none;">
+        <h2>Hello, welcome to indoor navigation for VIT!</h2>
+        <p>Kindly choose your floor from the drop-down menu followed by clicking on departure and destination rooms to find the shortest accessible route.</p>
+        <button id="continueButton">Continue</button>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Replace with your actual validation logic
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            if (username === "VIT" && password === "map") {
+                document.getElementById("welcomeMessage").style.display = "block";
+
+document.getElementById("continueButton").addEventListener("click", function() {
+  // Replace with your localhost URL or actual map page URL
+  window.location.href = "http://localhost:5176/";
+});
+            } else {
+                alert("Invalid credentials");
+            }
+        });
+    </script>
+</body>
+</html>
